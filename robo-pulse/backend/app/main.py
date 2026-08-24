@@ -7,7 +7,7 @@ register our various different routers to it for routing of our requests
 
 from fastapi import FastAPI
 
-from app.routers import robots
+from app.routers import robots, missions
 
 
 app = FastAPI(
@@ -18,6 +18,8 @@ app = FastAPI(
 
 # Include our routers in our API
 app.include_router(robots.router)
+
+app.include_router(missions.router)
 
 # Sample health endpoint to validate the application is running correctly
 @app.get("/health", tags=["health"])
